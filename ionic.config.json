@@ -1,0 +1,8 @@
+{
+  "name": "Eating Much",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "9d2d208f"
+}
