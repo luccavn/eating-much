@@ -1,0 +1,43 @@
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="addFood(form)">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center" [size-md]="6" [size-lg]="5" [size-xs]="12">
+          <div class="ion-text-center">
+            <h3>Adicionar Alimento</h3>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input name="name" type="text" placeholder="Nome" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="portion" type="number" placeholder="Porção (g)" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="proteins" type="number" placeholder="Proteínas (g)" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="fat" type="number" placeholder="Gorduras (g)" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="carbs" type="number" placeholder="Carboidratos (g)" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="fiber" type="number" placeholder="Fibras (g)" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-row>
+              <ion-col>
+                <ion-button size="large" expand="block" (click)="goBack()">Cancelar</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Adicionar</ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
