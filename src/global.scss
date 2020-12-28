@@ -24,3 +24,28 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ion-color-calories {
+	--ion-color-base: rgb(75, 187, 23);
+	--ion-color-base-rgb: 37,93,11;
+}
+
+.ion-color-protein {
+	--ion-color-base: rgb(253, 106, 2);
+	--ion-color-base-rgb: 126,53,1;
+}
+
+.ion-color-fat {
+	--ion-color-base: rgb(255, 211, 0);
+	--ion-color-base-rgb: 127,105,0;
+}
+
+.ion-color-carbs {
+	--ion-color-base: rgb(15, 82, 186);
+	--ion-color-base-rgb: 7,41,93;
+}
+
+.ion-color-fiber {
+	--ion-color-base: rgb(138, 154, 91);
+	--ion-color-base-rgb: 69,77,45;
+}

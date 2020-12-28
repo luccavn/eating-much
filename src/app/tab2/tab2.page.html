@@ -1,17 +1,92 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Eating Much
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label>Calorias</ion-label>
+            <ion-label class="right">{{totalCalories}} / {{targetCalories}} ({{remainingCalories}}kcal restantes)
+            </ion-label>
+          </div>
+          <ion-progress-bar color="calories" value="{{targetCaloriesPct}}"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label>Proteínas</ion-label>
+            <ion-label class="right">{{totalProteins}} / {{targetProteins}} ({{remainingProteins}}g
+              restantes)</ion-label>
+          </div>
+          <ion-progress-bar color="protein" value="{{targetProteinsPct}}"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label>Gordura</ion-label>
+            <ion-label class="right">{{totalFat}} / {{targetFat}} ({{remainingFat}}g restantes)
+            </ion-label>
+          </div>
+          <ion-progress-bar color="fat" value="{{targetFatPct}}"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label>Carboidratos</ion-label>
+            <ion-label class="right">{{totalCarbs}} / {{targetCarbs}} ({{remainingCarbs}}g restantes)
+            </ion-label>
+          </div>
+          <ion-progress-bar color="carbs" value="{{targetCarbsPct}}"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label>Fibras</ion-label>
+            <ion-label class="right">{{totalFiber}} / {{targetFiber}} ({{remainingFiber}}g restantes)
+            </ion-label>
+          </div>
+          <ion-progress-bar color="fiber" value="{{targetFiberPct}}"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="ion-padding">
+    <ion-card-title class="ion-text-center">Registro Alimentar do Dia</ion-card-title>
+    <ion-list>
+      <ion-item *ngFor="let food of foodRecord">
+        <ion-label>
+          <b>{{food.name}}</b>
+          <br>
+          <descr>{{food.time}}</descr>
+          <br>
+          <br>Calorias: {{food.calories}}kcal
+          <br>Proteínas: {{food.proteins}}g
+          <br>Gordura: {{food.fat}}g
+          <br>Carboidratos: {{food.carbs}}g
+          <br>Fibras: {{food.fiber}}g
+        </ion-label>  
+        <ion-note slot="end">{{food.portion}}g</ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addFood()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

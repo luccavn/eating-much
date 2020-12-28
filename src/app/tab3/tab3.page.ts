@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StatsService } from '../services/stats/stats.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  private currentStats: any;
+
+  public history: any;
+
+  constructor(private stats: StatsService) {
+    this.currentStats = this.stats.getCurrentStats();
+    this.history = this.currentStats.history;
+  }
 
 }

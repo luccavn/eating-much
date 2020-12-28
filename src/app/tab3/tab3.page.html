@@ -1,17 +1,81 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Eating Much
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card class="ion-padding">
+    <ion-card-title class="ion-text-center">Histórico Alimentar</ion-card-title>
+    <div *ngFor="let macros of history">
+        <ion-grid>
+          <ion-row style="margin-bottom: 14px;">
+            <ion-col>
+              <ion-label><b><u>{{macros.date}}</u></b></ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>Calorias</ion-label>
+                <ion-label class="right">{{macros.totalCalories}} / {{macros.targetCalories}}kcal
+                </ion-label>
+              </div>
+              <ion-progress-bar color="calories" value="{{macros.totalCalories/macros.targetCalories}}">
+              </ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>Proteínas</ion-label>
+                <ion-label class="right">{{macros.totalProteins}} / {{macros.targetProteins}}g</ion-label>
+              </div>
+              <ion-progress-bar color="protein" value="{{macros.totalProteins/macros.targetProteins}}">
+              </ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>Gordura</ion-label>
+                <ion-label class="right">{{macros.totalFat}} / {{macros.targetFat}}g
+                </ion-label>
+              </div>
+              <ion-progress-bar color="fat" value="{{macros.totalFat/macros.targetFat}}"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>Carboidratos</ion-label>
+                <ion-label class="right">{{macros.totalCarbs}} / {{macros.targetCarbs}}g
+                </ion-label>
+              </div>
+              <ion-progress-bar color="carbs" value="{{macros.totalCarbs/macros.targetCarbs}}"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-label>Fibras</ion-label>
+                <ion-label class="right">{{macros.totalFiber}} / {{macros.targetFiber}}g
+                </ion-label>
+              </div>
+              <ion-progress-bar color="fiber" value="{{macros.totalFiber/macros.targetFiber}}"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-top: 14px;">
+            <ion-col>
+              <ion-label>
+                <descr><b>Conclusão às {{macros.endTime}}</b></descr>
+              </ion-label>
+              <hr>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>
+  </ion-card>
 </ion-content>
